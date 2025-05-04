@@ -45,6 +45,59 @@ function showForm(role) {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector('.oturum-ac form');
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+
+    try {
+      const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.token) {
+        localStorage.setItem("token", data.token);
+        alert("Giriş başarılı!");
+        window.location.href = "dashboard.html"; // veya başka bir sayfa
+      } else {
+        alert(data.msg || "Giriş başarısız");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Sunucu hatası.");
+    }
+  });
+});
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
