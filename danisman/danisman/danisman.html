@@ -1,93 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danışman Paneli</title>
-  <link rel="stylesheet" href="danisman-style.css" />
+  <link rel="stylesheet" href="danisman-style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Üst Bar -->
-  <header class="topbar">
+  <div class="topbar">
     <div class="logo">
-      <img src="okul_logosu - Kopya.png" alt="Logo" height="60">
+      <img src="okul_logosu - Kopya.png" alt="Logo">
     </div>
     <button class="logout-btn">Çıkış Yap</button>
-  </header>
+  </div>
 
-  <!-- Ana Alan -->
   <div class="container">
-    
-    <!-- Sol Menü -->
-    <aside class="sidebar">
+    <nav class="sidebar">
       <ul class="menu">
-        <li class="active"><a href="#" data-section="profil">Profilim</a></li>
-        <li><a href="#" data-section="ogrenciler">Staj Yapan Öğrenciler</a></li>
-        <li><a href="#" data-section="tamamlayanlar">Stajı Tamamlayan Öğrenciler</a></li>
-        <li><a href="#" data-section="bildirimler">Bildirimler</a></li>
-        <li><a href="#" data-section="sifre">Şifre Değiştir</a></li>
-        <li><a href="#" data-section="cikis">Çıkış Yap</a></li>
+        <li class="active"><a href="#" data-target="profil"><i class="fas fa-user"></i> Profilim</a></li>
+        <li><a href="#" data-target="staj-yapanlar"><i class="fas fa-user-graduate"></i> Staj Yapan Öğrenciler</a></li>
+        <li><a href="#" data-target="staj-tamamlayanlar"><i class="fas fa-check-circle"></i> Staj Tamamlayan Öğrenciler</a></li>
+        <li><a href="#" data-target="bildirimler"><i class="fas fa-bell"></i> Bildirimler</a></li>
+        <li><a href="#" data-target="sifre"><i class="fas fa-key"></i> Şifre Değiştir</a></li>
       </ul>
-    </aside>
+    </nav>
 
-    <!-- İçerik -->
     <main class="content">
-      
-      <!-- Profil -->
-      <section id="profil" class="section active">
-        <h2>Profilim</h2>
+      <section id="profil" class="section-content active">
+        <h2><i class="fas fa-id-badge"></i> Profilim</h2>
         <div class="card">
           <p><strong>İsim:</strong> Prof. Dr. Ayşe Danışman</p>
           <p><strong>E-posta:</strong> ayse.danisman@example.edu.tr</p>
         </div>
       </section>
 
-      <!-- Staj Yapan Öğrenciler -->
-      <section id="ogrenciler" class="section">
+      <section id="staj-yapanlar" class="section-content">
         <h2>Staj Yapan Öğrenciler</h2>
         <div class="card">
-          <p><strong>Ad:</strong> Zeynep Kaya</p>
-          <p><strong>Numara:</strong> 654321</p>
-          <p><strong>Şirket:</strong> XYZ Teknoloji</p>
-          <p><strong>Başlangıç:</strong> 01/07/2025</p>
+          <p>Buraya staj yapan öğrencilerin listesi gelecek.</p>
         </div>
       </section>
 
-      <!-- Stajı Tamamlayan Öğrenciler -->
-      <section id="tamamlayanlar" class="section">
-        <h2>Stajı Tamamlayan Öğrenciler</h2>
+      <section id="staj-tamamlayanlar" class="section-content">
+        <h2>Staj Tamamlayan Öğrenciler</h2>
         <div class="card">
-          <p><strong>Ad:</strong> Ali Demir</p>
-          <p><strong>Numara:</strong> 789012</p>
-          <p><strong>Şirket:</strong> SoftTech A.Ş.</p>
-          <button class="btn-yes">Onayla</button>
-          <button class="btn-no">Reddet</button>
+          <p>Buraya stajı bitiren öğrencilerin listesi gelecek.</p>
         </div>
       </section>
 
-      <!-- Bildirimler -->
-      <section id="bildirimler" class="section">
+      <section id="bildirimler" class="section-content">
         <h2>Bildirimler</h2>
         <div class="card">
-          <p>28.08.2025: Ahmet Yılmaz’ın 4. hafta raporu eklendi.</p>
+          <p>📢 Yeni bildirimler buraya gelecek.</p>
         </div>
       </section>
 
-      <!-- Şifre Değiştir -->
-      <section id="sifre" class="section">
+      <section id="sifre" class="section-content">
         <h2>Şifre Değiştir</h2>
         <div class="card">
-          <label>Eski Şifre: <input type="password"></label><br><br>
-          <label>Yeni Şifre: <input type="password"></label><br><br>
-          <label>Yeni Şifre (Tekrar): <input type="password"></label><br><br>
-          <button>Şifreyi Güncelle</button>
+          <input type="password" placeholder="Yeni Şifre">
+          <button>Güncelle</button>
         </div>
       </section>
-
     </main>
   </div>
 
-  <script src="js/danisman.js"></script>
+  <script src="danisman.js"></script>
 </body>
 </html>

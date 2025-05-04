@@ -1,208 +1,150 @@
-/* === Genel Ayarlar === */
+/* Genel stil ayarları */
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f2f6fc;
-  color: #2c3e50;
+  font-family: 'Inter', sans-serif;
+  background: #e8f0fe; /* Açık mavi arka plan */
+  color: #222;
 }
 
-/* === Üst Bar === */
+/* Üst menü */
 .topbar {
-  background: #2c3e50;
-  color: white;
-  padding: 15px 25px;
+  background: #2a3a55; /* Koyu mavi üst menü */
+  padding: 8px 20px; /* Yüksekliği daraltmak için padding'i azaltıyoruz */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 
 .logo img {
-  height: 60px;
+  height: 70px;
 }
 
+/* Çıkış butonu */
 .logout-btn {
-  background: #e74c3c;
+  background: #ff6b6b;
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 12px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
+  transition: 0.3s ease;
 }
 
 .logout-btn:hover {
-  background: #c0392b;
+  background: #e04e4e;
 }
 
-/* === Sayfa Düzeni === */
+/* Ana içerik */
 .container {
   display: flex;
-  flex-direction: row;
   min-height: 100vh;
+  border-left: 1px solid rgba(0, 0, 0, 0.05); /* isteğe bağlı */
 }
 
-/* === Sol Menü (Sidebar) === */
+/* Sidebar (sol menü) */
 .sidebar {
-  width: 180px;
-  background: #2c3e50;
-  padding-top: 30px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.05);
+  width: 200px; /* Yan menü genişliğini 240px'ten 200px'e daralttık */
+  background: #2a3a55; /* Koyu mavi sol menü */
+  padding: 20px 0;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
 .menu {
   list-style: none;
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
+}
+
+.menu li {
+  margin-bottom: 15px;
 }
 
 .menu li a {
   display: block;
-  padding: 12px 18px;
-  font-size: 15px;
-  color: white;
+  padding: 12px 20px; /* Menü öğelerinin iç padding'ini daraltıyoruz */
+  font-size: 15px; /* Yazı boyutunu biraz küçültüyoruz */
+  color: #fff; /* Yazı rengini beyaz yapıyoruz */
+  background: #4a6076; /* Sol menü itemları için arka plan */
+  border-radius: 25px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 0 30px 30px 0;
+  transition: 0.3s ease;
 }
 
 .menu li.active a,
 .menu li a:hover {
-  background: #3498db;
-  padding-left: 35px;
+  background: linear-gradient(to right, #4c83ff, #3f72af); /* Mavi tonlarında hover efekti */
+  color: rgb(255, 255, 255);
+  font-weight: 600;
 }
 
-/* === İçerik Alanı === */
+/* İçerik alanı */
 .content {
   flex: 1;
-  padding: 25px 30px;
-  background: #f2f6fc;
+  padding: 50px 70px;
+  background-color: #f4f7fc; /* İçerik alanı için çok açık gri arka plan */
 }
 
-.section {
+/* Profil kartı */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Input stil */
+.card input[type="password"],
+.card input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Butonlar */
+.card button {
+  background: #3f72af; /* Mavi tonlarında buton */
+  color: rgb(255, 255, 255);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  background: #345d94; /* Buton hover efekti */
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-content {
   display: none;
 }
 
-.section.active {
+.section-content.active {
   display: block;
+  animation: fadeIn 0.4s ease;
 }
 
-h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
-}
 
-/* === Kartlar === */
-.card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  max-width: 500px;
-  margin-bottom: 30px;
-  transition: transform 0.2s;
-}
 
-.card:hover {
-  transform: translateY(-2px);
-}
-
-.card p {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-/* === Butonlar === */
-button {
-  background: #3498db;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-right: 10px;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.btn-yes {
-  background: #2ecc71;
-}
-
-.btn-yes:hover {
-  background: #27ae60;
-}
-
-.btn-no {
-  background: #e74c3c;
-}
-
-.btn-no:hover {
-  background: #c0392b;
-}
-
-/* === Şifre Değiştir Bölümü === */
-input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  font-size: 14px;
-}
-
-/* === Bildirim Kartları === */
-.notification {
-  background: #ecf0f1;
-  border-left: 5px solid #3498db;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    border-radius: 0;
-    display: flex;
-    overflow-x: auto;
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-
-  .menu li {
-    flex: 1;
-  }
-
-  .menu li a {
-    text-align: center;
-    border-radius: 0;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  .card {
-    max-width: 100%;
-  }
-}
