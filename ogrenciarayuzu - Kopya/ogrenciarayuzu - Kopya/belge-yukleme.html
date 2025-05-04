@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+  <html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belge Yükleme</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/belge-yukleme.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-left">
+        <a href="index.html" class="logo">← Ana Sayfa</a>
+      </div>
+      <div class="topbar-right">
+        <h1>Belge Yükleme</h1>
+      </div>
+    </header>
+  
+    <main class="container">
+      <section class="card">
+        <h2>Yüklenmiş Belgeler</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Belge Türü</th>
+              <th>Durum</th>
+              <th>Yüklenme Tarihi</th>
+              <th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Staj Kabul Belgesi</td>
+              <td class="status-done">Yüklendi</td>
+              <td>01/06/2025</td>
+              <td><button>Görüntüle</button></td>
+            </tr>
+            <tr>
+              <td>Zorunlu Staj Belgesi</td>
+              <td class="status-missing">Eksik</td>
+              <td>-</td>
+              <td><button>Yükle</button></td>
+            </tr>
+            <tr>
+              <td>Günlük Raporlar (PDF)</td>
+              <td class="status-missing">Eksik</td>
+              <td>-</td>
+              <td><button>Yükle</button></td>
+            </tr>
+            <tr>
+              <td>Değerlendirme Formu</td>
+              <td class="status-missing">Eksik</td>
+              <td>-</td>
+              <td><button>Yükle</button></td>
+            </tr>
+            <tr>
+              <td>İmzalı Sözleşme</td>
+              <td class="status-done">Yüklendi</td>
+              <td>15/06/2025</td>
+              <td><button>Görüntüle</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+  
+      <section class="card">
+        <h2>Yeni Belge Yükle</h2>
+        <form id="uploadForm">
+          <div class="form-group">
+            <label for="documentType">Belge Türü:</label>
+            <select id="documentType" required>
+              <option value="">-- Seçiniz --</option>
+              <option value="staj-kabul">Staj Kabul Belgesi</option>
+              <option value="zorunlu-staj">Zorunlu Staj Belgesi</option>
+              <option value="gunluk-rapor">Günlük Raporlar (PDF)</option>
+              <option value="degerlendirme">Değerlendirme Formu</option>
+              <option value="sozlesme">İmzalı Sözleşme</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fileUpload">Belge Seç:</label>
+            <input type="file" id="fileUpload" required />
+          </div>
+          <button type="submit">Yükle</button>
+        </form>
+      </section>
+    </main>
+  
+    <script src="js/belge-yukleme.js"></script>
+  </body>
+  </html>
+  
+   
+  

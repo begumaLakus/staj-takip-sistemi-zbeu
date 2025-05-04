@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+  }
+  
+  .topbar {
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .progress-circle {
+    transform: rotate(-90deg);
+    margin: 10px auto;
+    display: block;
+  }
+  
+  .progress-text {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: -80px;
+    text-align: center;
+  }
+  
+  .day-entry {
+    margin-bottom: 15px;
+  }
+  
+  .toggle-detail {
+    margin-left: 10px;
+    background: #3498db;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .day-detail {
+    display: none;
+    padding-left: 10px;
+    border-left: 3px solid #3498db;
+    margin-top: 5px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

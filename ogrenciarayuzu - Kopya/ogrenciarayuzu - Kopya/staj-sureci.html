@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staj Süreci</title>
+  <link rel="stylesheet" href="css/staj-sureci.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+    }
+    .topbar {
+      background: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card-row .card {
+      flex: 1;
+      min-width: 280px;
+    }
+    .progress-circle {
+      transform: rotate(-90deg);
+      margin: 10px auto;
+      display: block;
+    }
+    .progress-text {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: -80px;
+      text-align: center;
+    }
+    .day-entry {
+      margin-bottom: 15px;
+    }
+    .toggle-detail {
+      margin-left: 10px;
+      background: #3498db;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .day-detail {
+      display: none;
+      padding-left: 10px;
+      border-left: 3px solid #3498db;
+      margin-top: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="index.html" class="logo">← Ana Sayfa</a>
+    </div>
+    <div class="topbar-right">
+      <h1>Staj Süreci</h1>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- YAN YANA KARTLAR -->
+    <div class="card-row">
+      <!-- Firma Bilgileri -->
+      <div class="card">
+        <h2>Staj Yeri Bilgileri</h2>
+        <p><strong>Firma:</strong> Acıııyp Yazılım A.Ş.</p>
+        <p><strong>Departman:</strong> Ar-Ge ve İnovasyon</p>
+        <p><strong>Başlangıç Tarihi:</strong> 01/07/2025</p>
+        <p><strong>Bitiş Tarihi:</strong> 31/08/2025</p>
+        <p><strong>Toplam Süre:</strong> 56 Gün</p>
+      </div>
+
+      <!-- İlerleme Çubuğu -->
+      <div class="card" style="text-align: center;">
+        <h2>İlerleme Durumu</h2>
+        <svg width="120" height="120" class="progress-circle">
+          <circle cx="60" cy="60" r="50" stroke="#eee" stroke-width="10" fill="none" />
+          <circle id="progress" cx="60" cy="60" r="50" stroke="#3498db" stroke-width="10" fill="none"
+            stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314" />
+        </svg>
+        <div class="progress-text" id="progressText">%0</div>
+      </div>
+    </div>
+
+    <!-- Günlük Özet Listesi -->
+    <section class="card">
+      <h2>Günlük Özetler</h2>
+      <div class="day-entry">
+        <p><strong>01.07.2025 - </strong>Veri Tabanı Kurulumu
+          <button class="toggle-detail">Devamını Gör</button>
+        </p>
+        <div class="day-detail hidden">SQL Server kuruldu ve temel şema oluşturuldu.</div>
+      </div>
+      <div class="day-entry">
+        <p><strong>02.07.2025 - </strong>Frontend Geliştirme
+          <button class="toggle-detail">Devamını Gör</button>
+        </p>
+        <div class="day-detail hidden">React.js kullanılarak giriş ve kayıt arayüzleri geliştirildi.</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const totalDays = 56;
+      const completedDays = 14;
+      const percent = Math.round((completedDays / totalDays) * 100);
+      const offset = 314 - (314 * percent) / 100;
+
+      const progress = document.getElementById('progress');
+      const progressText = document.getElementById('progressText');
+
+      if (progress && progressText) {
+        progress.style.strokeDashoffset = offset;
+        progressText.textContent = `%${percent}`;
+      }
+
+      document.querySelectorAll('.toggle-detail').forEach(button => {
+        button.addEventListener('click', function () {
+          const detail = this.parentElement.nextElementSibling;
+          detail.classList.toggle('hidden');
+          this.textContent = detail.classList.contains('hidden') ? "Devamını Gör" : "Gizle";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
