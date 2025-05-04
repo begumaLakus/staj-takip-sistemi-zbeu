@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"], input[type="date"], textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #36d1dc;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #2bb4bf;
+  }
+  
+  .gunluk-listesi {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .gunluk-card {
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .edit-btn, .delete-btn {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .edit-btn {
+    background-color: #4caf50;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+  body {
+    background: linear-gradient(to bottom right, #8da1c7, #2a5298);
+    min-height: 100vh;
+    overflow-x: hidden; /* sadece yatay kaydırmayı engelliyoruz */
+    overflow-y: auto;   /* dikey kaydırmayı aktif ediyoruz */
+  }
+  
+  .container {
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    border-radius: 10px; 
+}
+
+.logo:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /*logoya gölge*/
+}
+
+
+  
+  
+  
+  
+  

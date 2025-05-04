@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Günlük Program - Online Staj Defteri</title>
+
+  <!-- Günlük Program CSS -->
+  <link rel="stylesheet" href="css/daily.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="logo">← Geri Dön</a>
+  </div>
+  <div class="topbar-right">
+    <h1>Günlük Staj Programı</h1>
+  </div>
+</header>
+
+<main class="daily-container">
+  
+  <!-- Yeni Günlük Rapor Ekleme -->
+  <section class="add-new-day">
+    <h2>Yeni Günlük Kayıt</h2>
+    <form class="day-form">
+      <div class="form-group">
+        <label>Tarih:</label>
+        <input type="date" id="dayDate" required>
+      </div>
+      <div class="form-group">
+        <label>Başlık:</label>
+        <input type="text" id="dayTitle" placeholder="Başlık yazınız..." required>
+      </div>
+      <div class="form-group">
+        <label>Yapılan İşler:</label>
+        <textarea id="dayDescription" placeholder="Bugün neler yaptınız?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Dosya Yükle:</label>
+        <input type="file" id="dayFile">
+      </div>
+      <button type="submit" class="save-btn">Kaydet</button>
+    </form>
+  </section>
+
+  <!-- Kayıtlı Günler Listesi -->
+  <section class="day-list">
+    <h2>Kayıtlı Günler</h2>
+    <div id="dayRecords">
+      <p>Henüz kayıt yok.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Günlük Program JS -->
+<script src="js/daily.js"></script>
+
+</body>
+</html>

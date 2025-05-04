@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staj Defteri Girişi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.ckeditor.com/4.25.1-lts/full/ckeditor.js"></script>
+</head>
+<body>
+
+    <img src="okul_logosu.png" alt="Okul Logosu" class="logo">
+
+<div class="container">
+  <form id="stajForm">
+    
+    <h2>Staj Tarihlerini Belirle</h2>
+    <label for="stajBaslangic"><strong>Başlangıç Tarihi:</strong></label>
+    <input type="date" id="stajBaslangic" name="stajBaslangic" required>
+
+    <label for="stajBitis"><strong>Bitiş Tarihi:</strong></label>
+    <input type="date" id="stajBitis" name="stajBitis" required>
+
+    <h2>Günlük Staj Defteri Girişi</h2>
+    <label for="isBasligi"><strong>Yapılan İş Başlığı:</strong></label>
+    <input type="text" id="isBasligi" name="isBasligi" required>
+
+    <label for="gunlukTarih"><strong>Günlük Tarih:</strong></label>
+    <input type="date" id="gunlukTarih" name="gunlukTarih" required>
+
+    <label for="gunlukIcerik"><strong>Staj Günlüğünü Doldur:</strong></label>
+    <textarea name="gunlukIcerik" id="gunlukIcerik" rows="10" required></textarea>
+
+    <button type="submit" class="btn">Günlük Kaydet</button>
+  </form>
+
+  <h2>Yazılan Staj Günlükleri</h2>
+  <div id="gunlukListesi" class="gunluk-listesi"></div>
+
+</div>
+
+<script>
+  // CKEditor başlangıcı
+  CKEDITOR.replace('gunlukIcerik', {
+    height: 300,
+    toolbar: [
+      { name: 'document', items: ['Source', '-', 'Preview'] },
+      { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo'] },
+      { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
+      { name: 'colors', items: ['TextColor', 'BGColor'] },
+      { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'] },
+      { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Blockquote'] },
+      { name: 'alignment', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight'] }
+    ]
+  });
+
+  // Staj ve Günlük Form İşlemleri
+  document.getElementById('stajForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const baslangic = document.getElementById('stajBaslangic').value;
+    const bitis = document.getElementById('stajBitis').value;
+    const baslik = document.getElementById('isBasligi').value;
+    const tarih = document.getElementById('gunlukTarih').value;
+    const icerik = CKEDITOR.instances.gunlukIcerik.getData();
+
+    if (!tarih || !icerik) return alert("Lütfen tüm alanları doldurun!");
+
+    let gunlukler = JSON.parse(localStorage.getItem('gunlukler')) || [];
+
+    gunlukler.push({ baslangic, bitis, baslik, tarih, icerik });
+
+    localStorage.setItem('gunlukler', JSON.stringify(gunlukler));
+    listeleGunlukler();
+
+    this.reset();
+    CKEDITOR.instances.gunlukIcerik.setData('');
+  });
+
+  function listeleGunlukler() {
+    const gunlukListesi = document.getElementById('gunlukListesi');
+    gunlukListesi.innerHTML = '';
+
+    let gunlukler = JSON.parse(localStorage.getItem('gunlukler')) || [];
+
+    gunlukler.forEach((g, index) => {
+      const div = document.createElement('div');
+      div.className = 'gunluk-card';
+      div.innerHTML = `
+        <strong>Başlık:</strong> ${g.baslik} <br>
+        <strong>Günlük Tarihi:</strong> ${g.tarih} <br>
+        <strong>İçerik:</strong><br> ${g.icerik}
+        <div style="margin-top:10px;">
+          <button onclick="duzenleGunluk(${index})" class="edit-btn">Düzenle</button>
+          <button onclick="silGunluk(${index})" class="delete-btn">Sil</button>
+        </div>
+      `;
+      gunlukListesi.appendChild(div);
+    });
+  }
+
+  function duzenleGunluk(index) {
+    let gunlukler = JSON.parse(localStorage.getItem('gunlukler'));
+    const secilenGunluk = gunlukler[index];
+
+    document.getElementById('isBasligi').value = secilenGunluk.baslik;
+    document.getElementById('gunlukTarih').value = secilenGunluk.tarih;
+    CKEDITOR.instances.gunlukIcerik.setData(secilenGunluk.icerik);
+
+    gunlukler.splice(index, 1);
+    localStorage.setItem('gunlukler', JSON.stringify(gunlukler));
+    listeleGunlukler();
+  }
+
+  function silGunluk(index) {
+    let gunlukler = JSON.parse(localStorage.getItem('gunlukler'));
+    if (confirm("Bu günlük kaydını silmek istediğine emin misin?")) {
+      gunlukler.splice(index, 1);
+      localStorage.setItem('gunlukler', JSON.stringify(gunlukler));
+      listeleGunlukler();
+    }
+  }
+
+  listeleGunlukler();
+</script>
+
+</body>
+</html>
+
+

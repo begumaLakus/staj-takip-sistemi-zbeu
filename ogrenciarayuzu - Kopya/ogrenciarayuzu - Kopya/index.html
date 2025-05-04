@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Staj Defteri - Öğrenci Paneli</title>
+
+  <!-- CSS Bağlantısı -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Üst Kısım -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      <span class="logo">
+        <img src="okul_logosu.png" alt="Logo" style="height:60px;">
+      </span>
+    </div>
+    <div class="topbar-right">
+      <button class="logout-btn" id="logoutBtnTop">Çıkış Yap</button>
+    </div>
+  </header>
+
+  <!-- Ana Alan -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <ul class="menu">
+        <li class="active"><a href="#" data-section="profil">Profilim</a></li>
+        <li><a href="#" data-section="surec">Staj Süreci</a></li>
+        
+        <!-- Güncellenmiş: Haftalık Raporlar yerine Günlük Program -->
+        <li><a href="daily.html" target="_blank">Günlük Program</a></li>
+
+        <li><a href="#" data-section="belgeler">Belge Yükleme</a></li>
+        <li><a href="#" data-section="bildirimler">Bildirimler</a></li>
+        <li><a href="#" data-section="sifre">Şifre Değiştir</a></li>
+        <li><a href="#" data-section="cikis">Çıkış Yap</a></li>
+      </ul>
+    </aside>
+
+    <!-- İçerik -->
+    <main class="content">
+      <section id="profil" class="section-content active">
+        <h2>Profilim</h2>
+        <div class="card">
+          <p><strong>İsim:</strong> Ahmet Yılmaz</p>
+          <p><strong>Öğrenci No:</strong> 123456</p>
+          <p><strong>E-posta:</strong> ahmetyilmaz@example.com</p>
+          <p><strong>Staj Yeri:</strong> ABC Yazılım Şirketi</p>
+        </div>
+      </section>
+
+      <section id="surec" class="section-content">
+        <h2>Staj Süreci</h2>
+        <div class="card">
+          <p><strong>Başlangıç Tarihi:</strong> 01/07/2025</p>
+          <p><strong>Bitiş Tarihi:</strong> 31/08/2025</p>
+          <p><strong>Toplam Süre:</strong> 8 Hafta (56 Gün)</p>
+          <p><strong>Günlük Plan:</strong> Günlük programınızı <a href="daily.html" target="_blank">buradan</a> takip edebilirsiniz.</p>
+        </div>
+      </section>
+
+      <!-- Belge Yükleme -->
+      <section id="belgeler" class="section-content">
+        <h2>Belge Yükleme</h2>
+        <div class="uploads">
+          <p><strong>Staj Başvuru Formu:</strong> Yüklendi (01/06/2025)</p>
+          <p><strong>Staj Değerlendirme Formu:</strong> Eksik <button>Yükle</button></p>
+          <p><strong>İmzalı Sözleşme:</strong> Eksik <button>Yükle</button></p>
+        </div>
+        <div class="upload-new">
+          <label for="fileInput"><strong>Yeni Belge Ekle:</strong></label>
+          <input type="file" id="fileInput" />
+          <button type="button">Yükle</button>
+        </div>
+      </section>
+
+      <!-- Bildirimler -->
+      <section id="bildirimler" class="section-content">
+        <h2>Bildirimler</h2>
+        <ul class="notifications">
+          <li><strong>12.08.2025:</strong> 2. hafta raporu eksik.</li>
+          <li><strong>05.08.2025:</strong> Staj onaylandı.</li>
+        </ul>
+      </section>
+
+      <!-- Şifre Değiştir -->
+      <section id="sifre" class="section-content">
+        <h2>Şifre Değiştir</h2>
+        <form class="password-form">
+          <div>
+            <label>Eski Şifre: <input type="password" /></label>
+          </div>
+          <div>
+            <label>Yeni Şifre: <input type="password" /></label>
+          </div>
+          <div>
+            <label>Yeni Şifre (Tekrar): <input type="password" /></label>
+          </div>
+          <button type="button">Şifreyi Güncelle</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- JavaScript Bağlantısı -->
+  <script src="js/script.js"></script>
+</body>
+</html>

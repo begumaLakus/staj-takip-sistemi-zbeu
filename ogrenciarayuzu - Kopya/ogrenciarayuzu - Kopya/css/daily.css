@@ -1,0 +1,263 @@
+/* === Genel Ayarlar === */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f6fc;
+  color: #2c3e50;
+}
+
+/* === Üst Bar === */
+.topbar {
+  background: #2c3e50;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 60px;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+/* === Sayfa Düzeni === */
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+/* === Sol Menü (Sidebar) === */
+.sidebar {
+  width: 180px;
+  background: #2c3e50;
+  padding-top: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  display: block;
+  padding: 12px 18px;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0 30px 30px 0;
+}
+
+.menu li.active a,
+.menu li a:hover {
+  background: #3498db;
+  padding-left: 35px;
+}
+
+/* === İçerik Alanı === */
+.content {
+  flex: 1;
+  padding: 25px 30px;
+  background: #f2f6fc;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* === Kartlar === */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin-bottom: 30px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* === Butonlar === */
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-yes {
+  background: #2ecc71;
+}
+
+.btn-yes:hover {
+  background: #27ae60;
+}
+
+.btn-no {
+  background: #e74c3c;
+}
+
+.btn-no:hover {
+  background: #c0392b;
+}
+
+/* === Şifre Değiştir Girdileri === */
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* === Bildirim Kartları === */
+.notification {
+  background: #ecf0f1;
+  border-left: 5px solid #3498db;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* === Günlük Program Sayfası (daily.html) === */
+.daily-container {
+  padding: 30px;
+}
+
+.add-new-day, .day-list {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+input[type="file"] {
+  margin-top: 8px;
+}
+
+.save-btn {
+  background: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.save-btn:hover {
+  background: #2980b9;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-radius: 0;
+    display: flex;
+    overflow-x: auto;
+    padding-top: 0;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .menu li {
+    flex: 1;
+  }
+
+  .menu li a {
+    text-align: center;
+    border-radius: 0;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+}
