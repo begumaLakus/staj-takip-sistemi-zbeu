@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,39 +8,30 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Login Page | Caged coder</title>
+    <title>Giriş Sayfası</title>
   </head>
 
   <body>
     <div class="container" id="container">
       <div class="form-container sign-up">
-<div class="role-select" id="roleSelect">
-  <h2>Kim Olduğunuzu Seçin</h2>
-  <div class="role-buttons">
-    <button onclick="showForm('ogrenci')">Öğrenciyim</button>
-    <button onclick="showForm('danisman')">Danışmanım</button>
-  </div>
-</div>
+        <div class="role-select" id="roleSelect">
+          <h2>Kim Olduğunuzu Seçin</h2>
+          <div class="role-buttons">
+            <button onclick="showForm('ogrenci')">Öğrenciyim</button>
+            <button onclick="showForm('danisman')">Danışmanım</button>
+          </div>
+        </div>
 
-<!-- Formlar -->
-<form id="ogrenciForm" style="display: none;">
-  <h2>ÖĞRENCİ KAYIT</h2>
+        <!-- Öğrenci Kayıt Formu -->
+        <form id="ogrenciForm" style="display: none;">
+          <h2>ÖĞRENCİ KAYIT</h2>
+          <input type="text" name="first_name" placeholder="Ad" required />
+          <input type="text" name="last_name" placeholder="Soyad" required />
+          <input type="text" name="student_number" placeholder="Öğrenci Numarası" required />
+          <input type="email" name="email" placeholder="E-posta" required />
+          <input type="password" name="password" placeholder="Şifre" required />
 
-  <input type="text" name="first_name" placeholder="ad" />
-          <input type="text" name="last_name"placeholder="soyad" />
-          <input type="text" name="student_number" placeholder="öğrenci numarası"/>
-          <input type="email" name="email" placeholder="email" />
-          <input type="password" name="password" placeholder="şifre" />
-
-
-          <select id="role" required>
-            <option value="">Rol Seçiniz</option>
-            <option value="student">Öğrenci</option>
-            <option value="advisor">Danışman</option>
-            <option value="employer">Amir</option>
-          </select>
-
-
+          <input type="hidden" name="role" value="student" />
 
           <div class="form-group-row">
             <label class="input-label-row">Staj Dönemi:</label>
@@ -49,25 +40,34 @@
               <label><input type="radio" name="staj" value="Staj2"> Staj 2</label>
             </div>
           </div>
-  <button>Kayıt Ol</button>
-</form>
+          <button type="submit">Kayıt Ol</button>
+        </form>
 
-<form id="danismanForm" style="display: none;">
-  <h1>DANIŞMAN KAYIT</h1>
-  <input type="text" name="danısman_ad" placeholder="ad" />
-  <input type="text" name="danısman_soyad" placeholder="soyad" />
-  <input type="email" name="danısman_email" placeholder="email" />
-  <input type="password" name="danısman_sifre" placeholder="şifre" />
-  <button>Kayıt Ol</button>
-</form>
+        <!-- Danışman Kayıt Formu -->
+        <form id="danismanForm" style="display: none;">
+          <h2>DANIŞMAN KAYIT</h2>
+          <input type="text" name="first_name" placeholder="Ad" required />
+          <input type="text" name="last_name" placeholder="Soyad" required />
+          <input type="email" name="email" placeholder="E-posta" required />
+          <input type="password" name="password" placeholder="Şifre" required />
+          <input type="hidden" name="role" value="advisor" />
+          <button type="submit">Kayıt Ol</button>
+        </form>
       </div>
+
+      <!-- Giriş Formu -->
       <div class="form-container oturum-ac">
-        <form>
-          <h1>OTURUM AÇ</h1>
-          <input type="email"  placeholder="email" />
-          <input type="password"  placeholder="şifre" />
-          <a href="#"> şifre mi unuttum </a>
-          <button>OTURUM AÇ</button>
+        <form id="loginForm">
+          <h2>OTURUM AÇ</h2>
+          <select name="login_role" id="loginRole" required>
+            <option value="">Rol Seçiniz</option>
+            <option value="student">Öğrenci</option>
+            <option value="advisor">Danışman</option>
+          </select>
+          <input type="email" id="loginEmail" name="email" placeholder="E-posta" required />
+          <input type="password" id="loginPassword" name="password" placeholder="Şifre" required />
+          <a href="#">Şifremi unuttum</a>
+          <button type="submit">Oturum Aç</button>
         </form>
       </div>
 
@@ -75,14 +75,12 @@
         <div class="toggle">
           <div class="toggle-panel toggle-left">
             <h1>HOŞGELDİN!</h1>
-            <p>Sitenin tüm özelliklerini kullanmak için kişisel bilgilerinizi girin</p>
+            <p>Sitenin tüm özelliklerini kullanmak için giriş yap</p>
             <button class="hidden" id="login">OTURUM AÇ</button>
           </div>
           <div class="toggle-panel toggle-right">
             <h1>HOŞGELDİN!</h1>
-            <p>
-              Sitenin tüm özelliklerini kullanmak için kişisel bilgilerinizle kayıt olun
-            </p>
+            <p>Kayıt olarak sistemi aktif kullanmaya başlayabilirsin</p>
             <button class="hidden" id="register">ÜYE OL</button>
           </div>
         </div>
@@ -91,5 +89,4 @@
 
     <script src="script.js"></script>
   </body>
-
 </html>

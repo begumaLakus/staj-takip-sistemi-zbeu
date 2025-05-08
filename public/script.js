@@ -2,25 +2,41 @@ const container = document.getElementById("container");
 const registerBtn = document.getElementById("register");
 const loginBtn = document.getElementById("login");
 
-registerBtn.addEventListener("click", () => {
-  container.classList.add("active");
+
+
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const role = document.getElementById("loginRole").value;
+
+  // Backend'e veri gönder
+  fetch("backend/login.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&role=${role}`,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        // Backend'den gelen role bilgisine göre yönlendirme
+        if (data.role === "student") {
+          window.location.href = "ogrenci-panel.html";
+        } else if (data.role === "advisor") {
+          window.location.href = "danisman-panel.html";
+        }
+      } else {
+        alert("Giriş bilgileri hatalı!");
+      }
+    })
+    .catch((error) => {
+      console.error("Giriş sırasında bir hata oluştu:", error);
+    });
 });
 
-loginBtn.addEventListener("click", () => {
-  container.classList.remove("active");
-});
-
-function showForm(role) {
-  // Seçim panelini gizle
-  document.getElementById("roleSelect").style.display = "none";
-
-  // Formları kontrol et
-  if (role === "ogrenci") {
-    document.getElementById("ogrenciForm").style.display = "block";
-  } else if (role === "danisman") {
-    document.getElementById("danismanForm").style.display = "block";
-  }
-}
 
 
 
