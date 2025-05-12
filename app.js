@@ -15,6 +15,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+
 // Statik dosyalar (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
